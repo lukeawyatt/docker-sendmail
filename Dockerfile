@@ -12,6 +12,7 @@ RUN mkdir -p /usr/src/app
 RUN mkdir -p /data
 WORKDIR /usr/src/app
 COPY docker-sendmail.sh /usr/src/app/
+RUN chmod +x /usr/src/app/docker-sendmail.sh
 
 EXPOSE 25 587
 ENTRYPOINT ["/usr/src/app/docker-sendmail.sh"]
