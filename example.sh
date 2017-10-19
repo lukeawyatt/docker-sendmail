@@ -15,11 +15,11 @@ echo;
 
 # RUN THE SENDMAIL CONTAINER
 echo "Running the container interactively..."
-docker run \
+docker run --tty \
 	--publish=25:25 \
 	--publish=587:587 \
 	--restart=unless-stopped \
 	--detach=true \
 	--name=sendmail \
-	meatspace/sendmail -h "gibson"
+	meatspace/sendmail -n "gibson"
 echo;

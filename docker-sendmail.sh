@@ -16,7 +16,7 @@ case $key in
 	echo;
 	exit 0
     ;;
-    -h|--host_name)
+    -n|--host_name)
     HOST="$2"
     shift # past argument
     shift # past value
