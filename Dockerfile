@@ -16,4 +16,3 @@ RUN chmod +x /usr/src/app/docker-sendmail.sh
 
 EXPOSE 25 587
 ENTRYPOINT ["/usr/src/app/docker-sendmail.sh"]
-CMD ["--help"]

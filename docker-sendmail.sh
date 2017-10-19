@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo "Initializing default variables..."
 HOST="SET"
@@ -28,7 +28,7 @@ echo HOST is set to "${HOST}"
 echo;
 
 echo "Bail out if any of the required arguments were skipped..."
-if [ "$HOST" == "SET" ] ; then
+if [ "$HOST" == "SET" ]; then
 	echo "One or more parameters were not set properly..."
 	echo "Exiting script..."
 	exit 1
