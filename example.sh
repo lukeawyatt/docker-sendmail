@@ -21,5 +21,5 @@ docker run --tty \
 	--restart=unless-stopped \
 	--detach=true \
 	--name=sendmail \
-	meatspace/sendmail -n "gibson"
+	meatspace/sendmail -n "gibson" -r 10.10
 echo;
