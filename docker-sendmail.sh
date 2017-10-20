@@ -2,6 +2,7 @@
 
 echo "Initializing default variables..."
 HOST="SET"
+RELAYCONTENT=""
 echo;
 
 echo "Parsing arguments..."
@@ -18,6 +19,13 @@ case $key in
     ;;
     -n|--host_name)
     HOST="$2"
+    shift # past argument
+    shift # past value
+    ;;
+	-r|--relay)
+    RELAY="$2"
+	echo "Whitelisting relay: $RELAY"
+	RELAYCONTENT="${RELAYCONTENT}\nConnect:$RELAY\t\tRELAY"
     shift # past argument
     shift # past value
     ;;
@@ -60,20 +68,8 @@ echo "Pre-configuring SENDMAIL..."
 sendmailconfig <<< $'y\ny\ny\n'
 echo;
 
-echo "Parsing relays..."
-while [[ $# -gt 0 ]]
-do
-key="$1"
-case $key in
-    -r|--relay)
-    RELAY="$2"
-	echo "Whitelisting relay: $RELAY"
-	echo -e "\nConnect:$RELAY\t\tRELAY" >> /etc/mail/access
-    shift # past argument
-    shift # past value
-    ;;
-esac
-done
+echo "Adding relay configuration..."
+echo -e $RELAYCONTENT >> /etc/mail/access
 echo;
 
 echo "Opening the listening IPs..."
