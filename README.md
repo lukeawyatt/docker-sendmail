@@ -2,4 +2,4 @@
 
 A docker container to launch Sendmail
 
-**This repository is currently in testing**
+**This repository has been abandoned for other solutions**
